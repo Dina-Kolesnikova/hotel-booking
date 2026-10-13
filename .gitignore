@@ -1,0 +1,15 @@
+# Personal learning files (local only, not for GitHub)
+.claude/
+CLAUDE.md
+PROGRESS.md
+book/
+docs/PLAN.md
+docs/FOUNDATIONS.md
+docs/SETUP.md
+
+# Secrets
+.env
+
+# System and dependencies
+.DS_Store
+node_modules/
