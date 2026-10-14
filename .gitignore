@@ -6,6 +6,9 @@ book/
 docs/PLAN.md
 docs/FOUNDATIONS.md
 docs/SETUP.md
+backend/AGENTS.md
+backend/.mcp.json
+backend/boost.json
 
 # Secrets
 .env
