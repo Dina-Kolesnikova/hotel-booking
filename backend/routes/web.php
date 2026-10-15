@@ -9,3 +9,10 @@ Route::get('/', function () {
 Route::get('/ping', function () {
     return ['status' => 'ok', 'time' => now()];
 });
+
+Route::get('/hotels', function () {
+    return [
+        ['name' => 'Kyiv Inn', 'city' => 'Kyiv'],
+        ['name' => 'Lviv Hotel', 'city' => 'Lviv']
+    ];
+});
