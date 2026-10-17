@@ -6,6 +6,7 @@ book/
 docs/PLAN.md
 docs/FOUNDATIONS.md
 docs/SETUP.md
+foundations/
 backend/AGENTS.md
 backend/.mcp.json
 backend/boost.json
