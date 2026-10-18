@@ -41,7 +41,7 @@ Business rules: [docs/DOMAIN.md](docs/DOMAIN.md) · Payment testing: [docs/STRIP
 
 ## Roadmap
 
-- [ ] Phase 0 — Environment, repository, request path
+- [-] Phase 0 — Environment, repository, request path
 - [ ] Phase 1 — Data model and search API
 - [ ] Phase 2 — Booking API (validation, conflicts, last-room locking)
 - [ ] Phase 3 — React frontend
