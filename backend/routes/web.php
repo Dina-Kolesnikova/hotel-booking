@@ -11,8 +11,5 @@ Route::get('/ping', function () {
 });
 
 Route::get('/hotels', function () {
-    return [
-        ['name' => 'Kyiv Inn', 'city' => 'Kyiv', 'price_per_night' => 4500],
-        ['name' => 'Lviv Hotel', 'city' => 'Lviv', 'price_per_night' => 3800]
-    ];
+    return App\Models\Hotel::all();
 });
