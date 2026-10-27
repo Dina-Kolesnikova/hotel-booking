@@ -13,3 +13,6 @@ Route::get('/ping', function () {
 Route::get('/hotels', function () {
     return App\Models\Hotel::all();
 });
+Route::get('/room-types/{id}/hotel', function ($id) {
+    return App\Models\RoomType::findOrFail($id)->hotel;
+});
