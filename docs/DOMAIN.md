@@ -8,12 +8,18 @@ Fake product, realistic rules. Use them for design decisions, validation and tes
 - Check-in ≥ today; check-out > check-in; max stay 30 nights; search window up to 90 days ahead.
 - Guests 1–6; a room type is shown only if its capacity ≥ guests.
 - A room type is available only if EVERY night of the stay has ≥ 1 room left.
-- Show price per night (may differ by night: weekend +20%) and total for the stay.
+- Show price per night (may differ by night, see "Nightly price") and total for the stay.
 
 ## Hotels and rooms
-- Hotel: name, city, address, star rating (1–5).
+- Hotel: name, city, address, star rating (optional; 1–5 if present — unrated hotels exist).
 - Room type: name (Standard, Deluxe, Suite, Family), capacity, total rooms.
 - Nightly inventory: rooms left + price for each room type for each date.
+
+## Nightly price
+- A night is identified by its date: the night of Wednesday = check-in Wednesday, check-out Thursday.
+- **Midweek nights (Monday, Tuesday, Wednesday, Thursday): base price + 20%.** Friday, Saturday and Sunday nights: base price. (City / business-travel model: weekdays are in higher demand.)
+- Example: base $100 → Wednesday night $120, Saturday night $100; stay Thursday → Saturday (2 nights) = $120 + $100 = $220.
+- The nightly price is calculated once when the calendar is filled and stored per night; search only reads it.
 
 ## Rate plans
 - **Non-refundable:** 10% cheaper; paid in full at booking.
