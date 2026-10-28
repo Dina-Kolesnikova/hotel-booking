@@ -16,3 +16,6 @@ Route::get('/hotels', function () {
 Route::get('/room-types/{id}/hotel', function ($id) {
     return App\Models\RoomType::findOrFail($id)->hotel;
 });
+Route::get('/hotels/{id}/room-types', function ($id) {
+    return App\Models\Hotel::findOrFail($id)->roomTypes;
+});
