@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\Hotel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::get('/hotels', function (Request $request) {
+    $city = $request->query('city');
+    return Hotel::where('city', $city)->get();
+});
