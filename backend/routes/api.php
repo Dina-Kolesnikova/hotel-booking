@@ -21,3 +21,7 @@ Route::get('/hotels/{id}/room-types', function ($id) {
 Route::get('/room-types/{id}', function ($id) {
     return RoomType::findOrFail($id);
 });
+
+Route::get('/room-types/{id}/nightly-inventories', function ($id) {
+    return RoomType::findOrFail($id)->nightlyInventories;
+});
