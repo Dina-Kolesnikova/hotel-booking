@@ -2,13 +2,10 @@
 
 use App\Models\Hotel;
 use App\Models\RoomType;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HotelController;
 
-Route::get('/hotels', function (Request $request) {
-    $city = $request->query('city');
-    return Hotel::where('city', $city)->get();
-});
+Route::get('/hotels', [HotelController::class, 'index']);
 
 Route::get('/hotels/{id}', function ($id) {
     return Hotel::findOrFail($id);
