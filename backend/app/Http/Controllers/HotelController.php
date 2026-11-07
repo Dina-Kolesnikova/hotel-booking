@@ -13,6 +13,13 @@ class HotelController extends Controller
      */
     public function index(Request $request)
     {
+        $request->validate([
+            'city' => 'required|string',
+            'check_in' => 'required|date|after_or_equal:today',
+            'check_out' => 'required|date|after:check_in',
+            'guests' => 'required|integer|min:1',
+        ]);
+
         $city = $request->query('city');
         $checkIn = $request->query('check_in');
         $checkOut = $request->query('check_out');
