@@ -1,4 +1,12 @@
 <?php
+test('H1: search with all valid fields no errors should happen', function () {
+    $response = $this->getJson('/api/hotels?city=Paris&check_in=2030-01-10&check_out=2030-01-11&guests=1');
+
+    $response->assertJsonMissingValidationErrors(['city']);
+    $response->assertJsonMissingValidationErrors(['check_in']);
+    $response->assertJsonMissingValidationErrors(['check_out']);
+    $response->assertJsonMissingValidationErrors(['guests']);
+});
 
 test('V1: search with all require fields missing returns 422 and error for each missing value', function () {
     $response = $this->getJson('/api/hotels');

@@ -23,6 +23,7 @@ Status values: `DONE`, `TODO` (agreed, not written), `OPEN` (needs a decision fi
 
 | ID | Case | Expected | Technique | Test | Status |
 |---|---|---|---|---|---|
+| H1 | All four fields valid (baseline) | no validation error on any field | Equivalence | HotelSearchValidationTest | DONE |
 | V1 | All four fields missing | 422, errors for all four | Equivalence | HotelSearchValidationTest | DONE |
 | V2 | `city=` (empty) | 422 on `city` | Equivalence | HotelSearchValidationTest | DONE |
 | V3 | `city` is exactly 100 characters | no error on `city` | Boundary | HotelSearchValidationTest | DONE |
@@ -42,7 +43,7 @@ Status values: `DONE`, `TODO` (agreed, not written), `OPEN` (needs a decision fi
 | D6 | Date formats other than `YYYY-MM-DD` | depends on decision | - | - | OPEN |
 | D7 | Maximum stay length | depends on decision | - | - | OPEN |
 
-Note: V3, V5, V8 and D2 only prove "validation did not stop the request". Whether the search then returns the right data is covered by L2 cases below.
+Note: H1 is the baseline: every negative case assumes the other fields are valid, and H1 proves that assumption. V3, V5, V8 and D2 only prove "validation did not stop the request". Whether the search then returns the right data is covered by L2 cases below.
 
 ## 2. Search behaviour cases (L2, auto, needs test database)
 
