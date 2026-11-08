@@ -5,7 +5,7 @@ A small full-stack hotel booking application: search → results → checkout �
 Built by a Senior QA Analyst to understand how every layer of a modern web product works —
 frontend, REST API, database, payments, integrations — and to prove it works with automated tests.
 
-> **Status:** work in progress — Phase 0 (environment and repository setup).
+> **Status:** work in progress — Phase 1 (search API): search with availability and request validation are done; database-backed search tests, API Resource and Postman collection are next.
 
 ## Architecture
 
@@ -37,12 +37,18 @@ React (TS) ──HTTP/JSON──> nginx → php-fpm → Laravel API ──> MySQ
 
 Out of scope: user accounts, real suppliers, multiple currencies, admin panel.
 
-Business rules: [docs/DOMAIN.md](docs/DOMAIN.md) · Payment testing: [docs/STRIPE_TESTING.md](docs/STRIPE_TESTING.md)
+Business rules: [docs/DOMAIN.md](docs/DOMAIN.md) · Payment testing: [docs/STRIPE_TESTING.md](docs/STRIPE_TESTING.md) · QA: [docs/qa](docs/qa/README.md)
 
 ## Roadmap
 
-- [-] Phase 0 — Environment, repository, request path
-- [ ] Phase 1 — Data model and search API
+- [x] Phase 0 — Environment, repository, request path
+- [ ] Phase 1 — Data model and search API *(in progress)*
+  - [x] Data model and migrations: hotels, room types, nightly inventory (foreign keys, unique night per room type, star rating check)
+  - [x] Eloquent models and relations, factories and seeded data (30 hotels, 90 days of inventory)
+  - [x] `GET /api/hotels` — availability over a date range (every night must have rooms) with total price in cents
+  - [x] Request validation — 422 with field errors for city, dates and guests
+  - [x] 17 Pest feature tests for validation; QA test strategy and case catalog in [docs/qa](docs/qa/README.md)
+  - [ ] Search tests with a test database, API Resource for a stable response shape, Postman collection
 - [ ] Phase 2 — Booking API (validation, conflicts, last-room locking)
 - [ ] Phase 3 — React frontend
 - [ ] Phase 4 — Payments and cancellation (idempotency, webhooks, refunds)
