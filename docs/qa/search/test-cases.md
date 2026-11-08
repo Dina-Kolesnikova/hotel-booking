@@ -49,7 +49,7 @@ Note: H1 is the baseline: every negative case assumes the other fields are valid
 
 | ID | Case | Expected | Test | Status |
 |---|---|---|---|---|
-| S1 | Happy path: known city, 1 guest, valid future dates | 200, matching hotels, `total_price` | - | TODO |
+| S1 | Happy path: known city, 1 guest, valid future dates | 200, matching hotels, `total_price` = sum of nights | HotelSearchTest (skipped) | TODO |
 | S2 | City not in the database | 200 with empty list (not 404, not 422) | - | TODO |
 | S3 | SQL injection string in `city` | 200 empty list, no SQL error | - | TODO |
 | S4 | Room type with no inventory row for one night | Not offered | - | TODO |
@@ -73,4 +73,4 @@ Note: H1 is the baseline: every negative case assumes the other fields are valid
 
 - D6: accept only `YYYY-MM-DD` or any format Laravel's `date` rule allows?
 - D7: maximum stay length.
-- L2 needs a test database setup (`RefreshDatabase`, factories); tests currently run on an empty in-memory SQLite database.
+- L2 needs a test database: `RefreshDatabase` on in-memory SQLite fails because the hotels migration adds its CHECK with MySQL-only `ALTER TABLE ... ADD CONSTRAINT`. S1 is written and skipped until tests run on a MySQL test database (or the migration is made SQLite-compatible).
