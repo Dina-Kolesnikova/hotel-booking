@@ -3,9 +3,9 @@
 use App\Models\Hotel;
 use App\Models\NightlyInventory;
 use App\Models\RoomType;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
-// TODO: enable RefreshDatabase once tests run on a MySQL test database (the hotels migration CHECK fails on SQLite).
-// uses(RefreshDatabase::class);
+uses(RefreshDatabase::class);
 
 test('S1: search with valid params returns the available hotel with total price', function () {
     $hotel = Hotel::factory()->create(['city' => 'Paris']);
@@ -19,4 +19,4 @@ test('S1: search with valid params returns the available hotel with total price'
     $response->assertJsonCount(1);
     $response->assertJsonPath('0.hotel_id', $hotel->id);
     $response->assertJsonPath('0.total_price', 22000);
-})->skip('Needs a MySQL test database: the hotels migration CHECK does not run on SQLite (see docs/qa/search/test-cases.md)');
+});
